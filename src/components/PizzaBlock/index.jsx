@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-function PizzaBlock({ title, price, sizes, types }) {
+function Index({ title, price, sizes, types }) {
   const [activeType, setActiveType] = useState(0);
   const [activeSize, setActiveSize] = useState(0);
 
@@ -17,7 +17,7 @@ function PizzaBlock({ title, price, sizes, types }) {
 
   const pizzaType = ["тонкое", "традиционное"];
 
-  PizzaBlock.propTypes = {
+  Index.propTypes = {
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     sizes: PropTypes.arrayOf(PropTypes.number).isRequired,
@@ -77,4 +77,4 @@ function PizzaBlock({ title, price, sizes, types }) {
 }
 
 
-export default PizzaBlock;
+export default Index;
