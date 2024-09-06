@@ -2,9 +2,11 @@ import Categories from "../components/Categories.jsx";
 import Sort from "../components/Sort.jsx";
 import Skeleton from "../components/PizzaBlock/Skeleton.jsx";
 import PizzaBlock from "../components/PizzaBlock/index.jsx";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { SearchContext } from "../App.jsx";
 
-function Home({searchValue}) {
+function Home() {
+  const {searchValue} = useContext(SearchContext);
   const [pizzas, setPizzas] = useState([]);
   const [loading, setLoading] = useState(true);
   const [categoryType, setCategoryType] = useState(0);

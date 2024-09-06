@@ -1,6 +1,9 @@
 import styles from "./Search.module.css";
+import { useContext } from "react";
+import { SearchContext } from "../../App.jsx";
 
-function Search({ searchValue, setSearchValue }) {
+function Search() {
+  const {searchValue, setSearchValue} = useContext(SearchContext);
 
   return (
     <div>
