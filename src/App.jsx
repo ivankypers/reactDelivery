@@ -4,17 +4,17 @@ import Home from "./pages/Home.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import Cart from "./pages/Cart.jsx";
 import { Routes, Route } from "react-router-dom";
-import { createContext, useState } from "react";
+import { createContext } from "react";
+import { Provider } from "react-redux";
+import { store } from "./redux/store.js";
 
-export const SearchContext = createContext('');
 
 function App() {
-  const [searchValue, setSearchValue] = useState('');
 
   return (
     <>
       <div className="wrapper">
-        <SearchContext.Provider value={{searchValue, setSearchValue}}>
+        <Provider store={store}>
           <Header />
           <div className="content">
             <Routes>
@@ -23,7 +23,7 @@ function App() {
               <Route path="*" element={ <NotFound />} />
             </Routes>
           </div>
-        </SearchContext.Provider>
+        </Provider>
       </div>
     </>
   )

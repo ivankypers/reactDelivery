@@ -1,9 +1,10 @@
 import styles from "./Search.module.css";
-import { useContext } from "react";
-import { SearchContext } from "../../App.jsx";
+import {setSearchValue} from '../../redux/slices/filterSlice.js'
+import { useDispatch, useSelector } from "react-redux";
 
 function Search() {
-  const {searchValue, setSearchValue} = useContext(SearchContext);
+  const dispatch = useDispatch();
+  const searchValue = useSelector((state) => state.filter.searchValue);
 
   return (
     <div>
@@ -11,7 +12,8 @@ function Search() {
         className={styles.searchContainer}
         value={searchValue}
         onChange={(event) => {
-          setSearchValue(event.target.value);
+
+          dispatch(setSearchValue(event.target.value));
         }}
         type="text"
         placeholder="Поиск" />
