@@ -4,7 +4,6 @@ import Home from "./pages/Home.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import Cart from "./pages/Cart.jsx";
 import { Routes, Route } from "react-router-dom";
-import { createContext } from "react";
 import { Provider } from "react-redux";
 import { store } from "./redux/store.js";
 

@@ -5,6 +5,7 @@ import PizzaBlock from "../components/PizzaBlock";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setCategoryId } from "../redux/slices/filterSlice.js"
+import axios from "axios";
 
 function Home() {
   const categoryId = useSelector((state) => state.filter.categoryId)
@@ -23,12 +24,12 @@ function Home() {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`https://dd8d26ae4d9e607c.mokky.dev/pizzas?${categoryId > 0 ? 'category=' + categoryId  : ''}` + `&sortBy=-` + sortType)
-      .then(res => res.json())
-      .then(arr => {
-        setPizzas(arr)
-        setLoading(false);
-      })
+    axios
+      .get(`https://dd8d26ae4d9e607c.mokky.dev/pizzas?${categoryId > 0 ? 'category=' + categoryId : ''}` + `&sortBy=-` + sortType).then(res => {
+      setPizzas(res.data)
+      setLoading(false);
+    })
+
 
   }, [categoryId, sortType]);
 
